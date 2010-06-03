@@ -203,7 +203,7 @@ tinyMCE.init({
 	</tr>
 	<tr>
 		<th>{t}depth{/t}:</th>
-		<td><input type="text" style="width:30px" name="data[depth]" value="{$object.depth|default:''}"/> cm</td>
+		<td><input type="text" style="width:30px" name="data[product_depth]" value="{$object.product_depth|default:''}"/> cm</td>
 		<th>{t}weight{/t}:</th>
 		<td><input type="text" style="width:30px" name="data[weight]" value="{$object.weight|default:''}"/> gr</td>
 	</tr>
