@@ -1,8 +1,6 @@
 <?php 
-/* SVN FILE: $Id$ */
-/* BeditaApp schema generated on: 2010-03-24 17:03:57 : 1269448617*/
-class BeditaAppSchema extends CakeSchema {
-	var $name = 'BeditaApp';
+class BooksSchema extends CakeSchema {
+	var $name = 'Books';
 
 	function before($event = array()) {
 		return true;

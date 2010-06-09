@@ -3,7 +3,7 @@
  * 
  * BEdita - a semantic content management framework
  * 
- * Copyright 2008 ChannelWeb Srl, Chialab Srl
+ * Copyright 2010 ChannelWeb Srl, Chialab Srl
  * 
  * This file is part of BEdita: you can redistribute it and/or modify
  * it under the terms of the Affero GNU General Public License as published 
@@ -38,6 +38,7 @@ $moduleSetup = array(
 	"emailAddress" => "info@bedita.com",
 	"version" => "0.1",
 	"BEditaVersion" => "3.1",
+	"tables" => array("books"),
 	"description" => "Books Module",
 	"BEditaObjects" => array("Book") 
 
