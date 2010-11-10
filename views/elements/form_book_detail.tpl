@@ -67,7 +67,7 @@ tinyMCE.init({
 	</tr>
 	<tr>
 		<td>
-			<label>{t}abstract:{/t}</label><br />
+			<label>{t}abstract{/t}:</label><br />
 			<textarea name="data[abstract]" class="mce">{$object.abstract|default:''}</textarea>
 		</td>
 	</tr>
