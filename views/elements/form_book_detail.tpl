@@ -62,7 +62,7 @@ tinyMCE.init({
 	<tr>
 		<td>
 			<label>{t}subtitle{/t}:</label><br />
-			<textarea id="subtitle" style="width:320px; height:30px" class="shortdesc autogrowarea" name="data[description]">{$object.description|default:''|escape:'html'}</textarea>
+			<textarea style="width:320px; height:30px" class="shortdesc autogrowarea" name="data[description]">{$object.description|default:''|escape:'html'}</textarea>
 		</td>
 	</tr>
 	<tr>
