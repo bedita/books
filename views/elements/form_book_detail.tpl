@@ -13,7 +13,7 @@ tinyMCE.init({
 	plugins : "safari,pagebreak,paste,fullscreen",
 
 	// Theme options
-	theme_advanced_buttons1 : "bold,italic,underline,strikethrough, | ,link,unlink,pastetext,pasteword, | ,removeformat,charmap,fullscreen",
+	theme_advanced_buttons1 : "bold,italic,underline,strikethrough, | ,link,unlink,pastetext,pasteword, | ,removeformat,charmap,code,fullscreen",
 	theme_advanced_buttons2 : "",
 	theme_advanced_buttons3 : "", 
 	theme_advanced_toolbar_location : "top",
@@ -21,7 +21,7 @@ tinyMCE.init({
 	//theme_advanced_statusbar_location : "bottom",
 	//theme_advanced_resizing : true,
 	theme_advanced_blockformats : "p,h1,h2,h3,h4,blockquote,address",
-	width : "320",
+	width : "480",
 
 	
 	// Example content CSS (should be your site CSS)
@@ -56,19 +56,19 @@ tinyMCE.init({
 		</td>
 		<td>
 			<label>{t}title{/t}:</label><br />
-			<input id="titleBEObject" style="width:320px;" type="text" name="data[title]" value="{$object.title|escape:'html'|escape:'quotes'}" />
+			<input id="titleBEObject" style="width:480px;" type="text" name="data[title]" value="{$object.title|escape:'html'|escape:'quotes'}" />
 		</td>
 	</tr>
 	<tr>
 		<td>
 			<label>{t}subtitle{/t}:</label><br />
-			<textarea style="width:320px; height:30px" class="shortdesc autogrowarea" name="data[description]">{$object.description|default:''|escape:'html'}</textarea>
+			<textarea style="width:480px; height:30px" class="shortdesc autogrowarea" name="data[description]">{$object.description|default:''|escape:'html'}</textarea>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			<label>{t}abstract{/t}:</label><br />
-			<textarea name="data[abstract]" class="mce">{$object.abstract|default:''}</textarea>
+			<textarea name="data[abstract]" style="height:240px" class="mce">{$object.abstract|default:''}</textarea>
 		</td>
 	</tr>
 </table>
