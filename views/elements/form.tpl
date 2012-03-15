@@ -26,6 +26,9 @@
 
 	{assign_associative var="params" el=$object}
 	{$view->element('form_advanced_properties',$params)}
+	
+	{$view->element("form_custom_properties")}
+		
 
 </form>
 
