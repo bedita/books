@@ -8,10 +8,10 @@
 
 {$javascript->link("jquery/jquery.form", false)}
 {$javascript->link("jquery/jquery.selectboxes.pack", false)}
-{$javascript->link("jquery/ui/ui.sortable.min", true)}
-{$javascript->link("jquery/ui/ui.datepicker.min", false)}
+{$javascript->link("jquery/ui/jquery.ui.sortable", true)}
+{$javascript->link("jquery/ui/jquery.ui.datepicker", false)}
 {if $currLang != "eng"}
-{$javascript->link("jquery/ui/i18n/ui.datepicker-$currLang.js", false)}
+{$javascript->link("jquery/ui/i18n/jquery.ui.datepicker-$currLang.js", false)}
 {/if}
 {$javascript->link("jquery/jquery.autocomplete", false)}
 
@@ -26,7 +26,8 @@
 	{/literal}
 </script>
 
-{$view->element('form_common_js')}
+{assign_associative var="params" currObjectTypeId=$conf->objectTypes.book.id}
+{$view->element('form_common_js', $params)}
 
 {$view->element('modulesmenu')}
 

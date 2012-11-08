@@ -28,8 +28,8 @@
 	{$view->element('form_advanced_properties',$params)}
 	
 	{$view->element("form_custom_properties")}
-		
-	{$view->element("form_permissions")}
+	
+	{$view->element("form_permissions", $params)}
 
 	
 	
