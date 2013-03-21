@@ -34,6 +34,10 @@ tinyMCE.init({
 
 	</script>
 {/literal}
+{else}
+
+	{$view->element('texteditor')}
+
 {/if}
 
 <div class="tab"><h2>{t}Book details{/t}</h2></div>
@@ -68,7 +72,7 @@ tinyMCE.init({
 	<tr>
 		<td>
 			<label>{t}abstract{/t}:</label><br />
-			<textarea name="data[abstract]" style="height:240px" class="mce">{$object.abstract|default:''}</textarea>
+			<textarea name="data[abstract]" style="height:240px" class="mceSimple">{$object.abstract|default:''}</textarea>
 		</td>
 	</tr>
 </table>
