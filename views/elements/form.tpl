@@ -12,8 +12,10 @@
 
 	{$view->element('form_tree')}
 	
-	{assign_associative var="params" containerId='multimediaContainer' collection="true" relation='attach' title='Multimedia'}
-	{$view->element('form_file_list', $params)}
+	{if strnatcmp($conf->majorVersion, '3.3') <= 0}
+		{assign_associative var="params" containerId='multimediaContainer' collection="true" relation='attach' title='Multimedia'}
+		{$view->element('form_file_list', $params)}
+	{/if}
 
 	{$view->element('form_tags')}
 	
