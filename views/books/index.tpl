@@ -12,6 +12,11 @@
 
 <div class="mainfull">
 
+    {* BE > 3.3 *}
+    {if strnatcmp($conf->majorVersion, '3.3') > 0} 
+        {$view->element("filters")}
+    {/if}
+
 	{assign_associative var="params" method="index"}
 	{$view->element("list_objects",$params)}
 
