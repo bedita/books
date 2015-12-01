@@ -32,7 +32,7 @@ class BooksController extends ModulesController {
 	var $name = 'Books';
 
 	var $helpers 	= array('BeTree', 'BeToolbar');
-	var $components = array('BeFileHandler');
+	var $components = array('BeFileHandler', 'BeSecurity');
 
 	var $uses = array('BEObject', 'Book', 'Tree', 'Category') ;
 	protected $moduleName = 'books';

@@ -42,6 +42,7 @@ $(document).ready(function(){
 
 	
 <form method="post" action="" id="formObject">
+{$beForm->csrf()}
 
 	<input type="hidden" name="data[id]"/>
 
