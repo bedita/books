@@ -15,6 +15,8 @@ class BooksSchema extends CakeSchema {
 		'year' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 4, 'values' => NULL),
 		'series' => array('type' => 'string', 'null' => true, 'default' => NULL, 'values' => NULL),
 		'location' => array('type' => 'string', 'null' => true, 'default' => NULL, 'values' => NULL),
+        'book_type' => array('type' => 'string', 'null' => true, 'default' => NULL, 'values' => NULL),
+        'digital_price' => array('type' => 'float', 'null' => true, 'default' => NULL, 'length' => '10,2', 'comment' => 'item price'),
 		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1))
 	);
 }

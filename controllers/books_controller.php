@@ -36,7 +36,11 @@ class BooksController extends ModulesController {
 
 	var $uses = array('BEObject', 'Book', 'Tree', 'Category') ;
 	protected $moduleName = 'books';
-	
+
+    protected function beditaBeforeFilter() {
+        BeLib::getObject('BeConfigure')->loadPluginLocalConfig($this->moduleName);
+    }
+
     public function index($id = null, $order = "", $dir = true, $page = 1, $dim = 20) {
 		$conf  = Configure::getInstance() ;
 		$filter["object_type_id"] = $conf->objectTypes['book']["id"];

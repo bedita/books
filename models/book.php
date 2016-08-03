@@ -39,6 +39,7 @@ class Book extends BeditaProductModel
 	
 	function beforeValidate() {
 		$this->checkNumber('year');
+		$this->checkNumber('quantity');
 		return true;
 	}
 }

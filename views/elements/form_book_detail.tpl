@@ -109,10 +109,7 @@
 
 {/bedev*}
 </table>
-
-
 <hr />
-
 <table>
 	<tr>
 		<th>{t}publisher{/t}:</th>
@@ -141,8 +138,6 @@
 	<tr>
 		<th>{t}isbn/issn{/t}:</th>
 		<td colspan=3><input type="text" style="width:100%" name="data[isbn]" value="{$object.isbn|default:''}" /></td>
-		
-		
 	</tr>
 </table>
 </fieldset>
@@ -174,6 +169,30 @@
 	</tr>
 </table>
 
-
-
+</fieldset>
+<div class="tab"><h2>{t}Bookstore Data{/t}</h2></div>
+<fieldset id="bookstoredata">
+	<table>
+		<tr>
+			<th>{t}type{/t}:</th>
+			<td>
+				{assign var=book_type value=$object.book_type|default:$conf->defaultBookType}
+				<select name="data[book_type]" id="book_type">
+					{foreach key=val item=label from=$conf->bookTypes name=btype}
+						<option {if $val==$book_type}selected="selected"{/if} value="{$val}">{$label}</option>
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>{t}paper price{/t}:</th>
+			<td colspan="1"><input type="text" style="width:90px" name="data[price]" value="{$object.price|default:''}"/> &euro;</td>
+			<th>{t}digital price{/t}:</th>
+			<td colspan="1"><input type="text" style="width:90px" name="data[digital_price]" value="{$object.digital_price|default:''}"/> &euro;</td>
+		</tr>
+		<tr>
+			<th>{t}quantity avaiable{/t}:</th>
+			<td colspan="2"><input type="text" style="width:30px" name="data[quantity]" value="{$object.quantity|default:''}"/></td>
+		</tr>
+	</table>
 </fieldset>
