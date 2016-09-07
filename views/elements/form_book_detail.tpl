@@ -186,10 +186,14 @@
 		</tr>
 		<tr>
 			<th>{t}paper price{/t}:</th>
-			{$price = money_format('%!i', $object.price)}
+			{if !empty($object.price)}
+				{$price = money_format('%!i', $object.price)}
+			{/if}
 			<td colspan="1"><input type="text" style="width:90px" name="data[price]" value="{$price|default:''}"/> &euro;</td>
 			<th>{t}digital price{/t}:</th>
-			{$digital_price = money_format('%!i', $object.digital_price)}
+			{if !empty($object.digital_price)}
+				{$digital_price = money_format('%!i', $object.digital_price)}
+			{/if}
 			<td colspan="1"><input type="text" style="width:90px" name="data[digital_price]" value="{$digital_price|default:''}"/> &euro;</td>
 		</tr>
 		<tr>

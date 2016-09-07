@@ -48,14 +48,16 @@ class Book extends BeditaProductModel
 	protected function formatPrice($field){
 		$locale = setlocale(LC_ALL, 0);
         $data = &$this->data[$this->name];
-        if (substr($locale, 0, 5) === 'it_IT') {
-            $locale_info = localeconv();
-            $curr = $locale_info['int_curr_symbol'];
-            $formatter = new NumberFormatter($locale, NumberFormatter::CURRENCY);
-            $price = $data[$field] . "\xc2\xa0" . '€';
-            $data[$field] = $formatter->parseCurrency($price, $curr);
-        } else {
-            $data[$field] = str_replace(',', '', $data[$field]);
+        if (!empty($data[$field])) {
+            if (substr($locale, 0, 5) === 'it_IT') {
+                $locale_info = localeconv();
+                $curr = $locale_info['int_curr_symbol'];
+                $formatter = new NumberFormatter($locale, NumberFormatter::CURRENCY);
+                $price = $data[$field] . "\xc2\xa0" . '€';
+                $data[$field] = $formatter->parseCurrency($price, $curr);
+            } else {
+                $data[$field] = str_replace(',', '', $data[$field]);
+            }
         }
 	}
 }
