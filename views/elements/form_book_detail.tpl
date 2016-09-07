@@ -186,9 +186,11 @@
 		</tr>
 		<tr>
 			<th>{t}paper price{/t}:</th>
-			<td colspan="1"><input type="text" style="width:90px" name="data[price]" value="{$object.price|default:''}"/> &euro;</td>
+			{$price = money_format('%!i', $object.price)}
+			<td colspan="1"><input type="text" style="width:90px" name="data[price]" value="{$price|default:''}"/> &euro;</td>
 			<th>{t}digital price{/t}:</th>
-			<td colspan="1"><input type="text" style="width:90px" name="data[digital_price]" value="{$object.digital_price|default:''}"/> &euro;</td>
+			{$digital_price = money_format('%!i', $object.digital_price)}
+			<td colspan="1"><input type="text" style="width:90px" name="data[digital_price]" value="{$digital_price|default:''}"/> &euro;</td>
 		</tr>
 		<tr>
 			<th>{t}quantity avaiable{/t}:</th>
