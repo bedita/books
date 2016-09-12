@@ -3,7 +3,7 @@
  * 
  * BEdita - a semantic content management framework
  * 
- * Copyright 2008 ChannelWeb Srl, Chialab Srl
+ * Copyright 2008-2016 ChannelWeb Srl, Chialab Srl
  * 
  * This file is part of BEdita: you can redistribute it and/or modify
  * it under the terms of the Affero GNU General Public License as published 
@@ -20,13 +20,7 @@
  */
 
 /**
- * Book product
- *
- * @version			$Revision: 2510 $
- * @modifiedby 		$LastChangedBy: bato $
- * @lastmodified	$LastChangedDate: 2009-12-17 13:36:03 +0100 (gio, 17 dic 2009) $
- * 
- * $Id: book.php 2510 2009-12-17 12:36:03Z bato $
+ * The Book as a product 
  */
 class Book extends BeditaProductModel
 {
@@ -40,25 +34,30 @@ class Book extends BeditaProductModel
 	public function beforeValidate() {
 		$this->checkNumber('year');
 		$this->checkNumber('quantity');
-		$this->formatPrice('price');
-		$this->formatPrice('digital_price');
+		$this->parsePrice('price');
+		$this->parsePrice('digital_price');
 		return true;
 	}
 
-	protected function formatPrice($field){
-		$locale = setlocale(LC_ALL, 0);
+    /**
+     * NumberFormatter::CURRENCY and TYPE_CURRENCY suck - you have to include currency symbol
+     * This is a locale independent "horrible" parser for most commont display formats:
+     *   #,###.## -  #.###,## - # ###.##
+     */
+    protected function parsePrice($field){
         $data = &$this->data[$this->name];
         if (!empty($data[$field])) {
-            if (substr($locale, 0, 5) === 'it_IT') {
-                $locale_info = localeconv();
-                $curr = $locale_info['int_curr_symbol'];
-                $formatter = new NumberFormatter($locale, NumberFormatter::CURRENCY);
-                $price = $data[$field] . "\xc2\xa0" . '€';
-                $data[$field] = $formatter->parseCurrency($price, $curr);
-            } else {
-                $data[$field] = str_replace(',', '', $data[$field]);
+            $value = str_replace(',', '.', $data[$field]);
+            $value = str_replace(' ', '', $value);
+            $parts = explode('.', $value);
+            $numParts = count($parts); 
+            if ($numParts > 1) {
+                $last = array_pop($parts);
+                $value = implode('', $parts);
+                $value .= (strlen($last) > 2 ? '' : '.') . $last;
             }
+            $data[$field] = floatval($value);
         }
-	}
+    }
 }
 
