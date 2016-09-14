@@ -19,10 +19,16 @@
  *------------------------------------------------------------------->8-----
  */
 
-//$config["objRelationType"] = array(
-//);
-
-
-
-
-?>
+$config['objRelationType'] = array(
+    'BookPurchasedBy' => array(
+        'inverse' => 'purchaseBook',
+        'inverseLabel' => 'book purchased',
+        'hidden' => false,
+        'label' => 'purchased by',
+        'params' => array(
+            'purchased date'
+        ),
+        'left' 	 => array('book'),
+        'right'  => array('card')
+    )
+);
