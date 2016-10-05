@@ -29,11 +29,10 @@
  * $Id: books_controller.php 2712 2010-03-26 08:14:23Z dante $
  */
 class BooksController extends ModulesController {
-	var $name = 'Books';
 
+	var $name = 'Books';
 	var $helpers 	= array('BeTree', 'BeToolbar');
 	var $components = array('BeFileHandler', 'BeSecurity');
-
 	var $uses = array('BEObject', 'Book', 'Tree', 'Category') ;
 	protected $moduleName = 'books';
 
@@ -49,9 +48,7 @@ class BooksController extends ModulesController {
 	 }
 
 	 public function view($id = null) {
-
 		$this->viewObject($this->Book, $id);
-
 	 }
 
 	public function save() {

@@ -20,7 +20,7 @@
  */
 
 $config['objRelationType'] = array(
-    'BookPurchasedBy' => array(
+    'bookPurchasedBy' => array(
         'inverse' => 'purchaseBook',
         'inverseLabel' => 'book purchased',
         'hidden' => false,

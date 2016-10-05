@@ -30,7 +30,61 @@ class Book extends BeditaProductModel
 		"subject" => 4, "abstract" => 4, "isbn" => 10, "publisher" => 4);	
 	
 	public $objectTypesGroups = array("leafs", "related");
-	
+
+    protected $modelBindings = array(
+        'detailed' => array(
+            'BEObject' => array(
+                'ObjectType',
+                'Permission',
+                'UserCreated',
+                'UserModified',
+                'RelatedObject',
+                'ObjectProperty',
+                'LangText',
+                'Category',
+                'Annotation',
+                'Alias',
+                'Version' => array('User.realname', 'User.userid')
+            ),
+            'Product'
+        ),
+        'default' => array(
+            'BEObject' => array(
+                'ObjectProperty',
+                'LangText',
+                'ObjectType'
+            ),
+            'Product'
+        ),
+        'minimum' => array(
+            'BEObject' => array('ObjectType'),
+            'Product'
+        ),
+        'frontend' => array(
+            'BEObject' => array(
+                'LangText',
+                'ObjectProperty',
+                'RelatedObject',
+                'Category',
+                'Annotation',
+                'GeoTag'
+            ),
+            'Product'
+        ),
+        'api' => array(
+            'BEObject' => array(
+                'LangText',
+                'Permission',
+                'ObjectProperty',
+                'RelatedObject',
+                'Category',
+                'GeoTag'
+            ),
+            'Product'
+        )
+    );
+
+
 	public function beforeValidate() {
 		$this->checkNumber('year');
 		$this->checkNumber('quantity');
