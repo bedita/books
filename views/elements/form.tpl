@@ -8,14 +8,14 @@
 
 	{$view->element('form_book_detail')}
 
-	{assign_associative var="params" comments='true'}
-	{$view->element('form_properties',$params)}
+	{$view->element('form_properties', ['comments' => true])}
+
+	{$view->element('form_categories')}
 
 	{$view->element('form_tree')}
 	
 	{if strnatcmp($conf->majorVersion, '3.3') <= 0}
-		{assign_associative var="params" containerId='multimediaContainer' collection="true" relation='attach' title='Multimedia'}
-		{$view->element('form_file_list', $params)}
+		{$view->element('form_file_list', ['containerId' => 'multimediaContainer', 'collection' => true, 'relation' => 'attach', 'title' => 'Multimedia'])}
 	{/if}
 
 	{$view->element('form_tags')}
@@ -24,18 +24,13 @@
 		
 	{$view->element('form_translations')}
 	
-	{assign_associative var="params" object_type_id=$conf->objectTypes.book.id}
-	{$view->element('form_assoc_objects', $params)}
+	{$view->element('form_assoc_objects', ['object_type_id' => $conf->objectTypes.book.id])}
 
-	{assign_associative var="params" el=$object}
-	{$view->element('form_advanced_properties',$params)}
+	{$view->element('form_advanced_properties', ['el' => $object])}
 	
 	{$view->element("form_custom_properties")}
 	
-	{$view->element("form_permissions", $params)}
-
-	
-	
+	{$view->element('form_permissions', ['el' => $object])}
 </form>
 
 {$view->element('form_print')}

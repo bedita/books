@@ -51,7 +51,7 @@
 
 {$view->element('modulesmenu')}
 
-{$view->element('menuleft')}
+{$view->element('menuleft', ['method' => 'view'])}
 
 <div class="head">
 
@@ -61,8 +61,7 @@
 
 {assign var=objIndex value=0}
 
-{assign_associative var="params" fixed="true"}
-{$view->element('menucommands',$params)}
+{$view->element('menucommands', ['method' => 'view', 'fixed' => true])}
 
 <div class="main">	
 

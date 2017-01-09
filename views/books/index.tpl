@@ -4,9 +4,9 @@
 
 {$view->element('modulesmenu')}
 
-{$view->element("menuleft")}
+{$view->element('menuleft', ['method' => 'index'])}
 
-{$view->element("menucommands")}
+{$view->element('menucommands', ['method' => 'index'])}
 
 {$view->element("toolbar")}
 

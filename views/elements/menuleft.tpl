@@ -2,10 +2,19 @@
 Template incluso.
 Menu a SX valido per tutte le pagine del controller.
 *}
-
 <div class="primacolonna">
 
 		<div class="modules"><label class="bedita" rel="{$html->url('/')}">{$conf->projectName|default:$conf->userVersion}</label></div>
+
+		{* Actions menu *}
+		{$actions = ['index' => $currentModule.label, 'categories' => 'Categories']}
+		<ul class="menuleft insidecol">
+			{foreach $actions as $action => $label}
+			<li {if $method == $action}class="on"{/if}>
+				{$tr->link($label, $html->url(['controller' => $moduleName, 'action' => $action]))}
+			</li>
+			{/foreach}
+		</ul>
 	
 		<ul class="menuleft insidecol">
 

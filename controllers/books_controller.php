@@ -36,6 +36,13 @@ class BooksController extends ModulesController {
 	var $uses = array('BEObject', 'Book', 'Tree', 'Category') ;
 	protected $moduleName = 'books';
 
+    /**
+     * Models categorizable within this controller.
+     *
+     * @var array
+     */
+    protected $categorizableModels = array('Book');
+
     protected function beditaBeforeFilter() {
         BeLib::getObject('BeConfigure')->loadPluginLocalConfig($this->moduleName);
     }
@@ -89,6 +96,13 @@ class BooksController extends ModulesController {
 		$this->render(null, null, VIEWS."books/inc/list_all_books.tpl");
 	}
 
+    /**
+     * Shows Books categories.
+     */
+    public function categories() {
+        $this->showCategories($this->Book);
+    }
+
 	protected function forward($action, $esito) {
 		$REDIRECT = array(
 			"cloneObject"	=> 	array(
@@ -127,6 +141,4 @@ class BooksController extends ModulesController {
 		if(isset($REDIRECT[$action][$esito])) return $REDIRECT[$action][$esito] ;
 		return false ;
 	}
-}	
-
-?>
+}
